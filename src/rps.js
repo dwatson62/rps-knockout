@@ -1,8 +1,6 @@
 function Game() {
-  this.userWeapon;
-  this.winner;
-  this.gameRules = { 'Rock': 'Scissors', 'Scissors': 'Paper', 'Paper': 'Rock' }
-};
+  this.gameRules = { 'Rock': 'Scissors', 'Scissors': 'Paper', 'Paper': 'Rock' };
+}
 
 Game.prototype.userInput = function(weapon) {
   this.userWeapon = weapon;
@@ -24,8 +22,7 @@ Game.prototype.cpuInput = function() {
 Game.prototype.result = function() {
   var userWeapon = this.userWeapon;
   var cpuWeapon = this.cpuInput();
-  if (this.gameRules.userWeapon === cpuWeapon) { this.winner = 'Player Wins!'; }
+  if (this.gameRules[userWeapon] === cpuWeapon) { this.winner = 'Player Wins!'; }
   else if (userWeapon === cpuWeapon) { this.winner = 'Draw!'; }
-  else { this.winner = 'Computer Wins!'}
-
+  else { this.winner = 'Computer Wins!'; }
 };

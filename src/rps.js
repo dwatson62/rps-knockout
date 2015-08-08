@@ -14,15 +14,17 @@ Game.prototype.generate = function() {
 
 Game.prototype.cpuInput = function() {
   var x = this.generate();
-  if (x == 1) { return 'Rock'; }
-  else if(x == 2) { return 'Scissors'; }
-  else if(x == 3) { return 'Paper'; }
+  if (x == 1) { this.cpuWeapon = 'Rock'; }
+  else if(x == 2) { this.cpuWeapon = 'Scissors'; }
+  else if(x == 3) { this.cpuWeapon = 'Paper'; }
+  return this.cpuWeapon;
+
 };
 
 Game.prototype.result = function() {
   var userWeapon = this.userWeapon;
-  var cpuWeapon = this.cpuInput();
-  if (this.gameRules[userWeapon] === cpuWeapon) { this.winner = 'Player Wins!'; }
-  else if (userWeapon === cpuWeapon) { this.winner = 'Draw!'; }
-  else { this.winner = 'Computer Wins!'; }
+  var cpuWeapon = this.cpuWeapon;
+  if (this.gameRules[userWeapon] === cpuWeapon) { return 'Player Wins!'; }
+  else if (userWeapon === cpuWeapon) { return 'Draw!'; }
+  else { return 'Computer Wins!'; }
 };

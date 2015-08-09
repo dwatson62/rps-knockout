@@ -8,6 +8,10 @@ function ViewModel() {
 
   self.weaponButtons = ko.observable(Object.keys(game.gameRules));
 
+  self.toggleTacticalMode = function() {
+    game.toggleTacticalMode();
+  };
+
   self.selectWeapon = function(input) {
     var weapon = game.userInput(input);
     self.weapon(weapon);

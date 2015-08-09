@@ -1,9 +1,11 @@
 var express = require('express');
+var path = require('path');
 var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/src',  express.static(__dirname + '/src'));
 
 var server = app.listen(3000, function () {

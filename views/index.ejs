@@ -1,21 +1,33 @@
 <html>
 <head>
   <title>Rock Paper Scissors</title>
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src='/bower_components/knockout/dist/knockout.js'></script>
   <script src='/src/rps.js'></script>
 </head>
+<header>
+  <center><h1>Choose your weapon</h1></center>
+</header>
+
 <body>
 
-  <p>Choose your weapon:</p>
+  <center>
 
-  <div id='buttons' data-bind="foreach: weaponButtons">
-    <button data-bind="click: function() { $root.selectWeapon($data); }, attr: { value='Hi';"><p data-bind="text: $data"></p></button>
+  <br>
+  <div data-bind="foreach: weaponButtons">
+    <button class="weapon-btns" data-bind="{ click: function() { $root.selectWeapon($data); };"><p data-bind="text: $data"></p></button>
   </div>
 
-  <p>My weapon is: <span data-bind="text: weapon"></span>
-  <p>Opponents weapon is: <span data-bind="text: opponent"></span>
-  <p>The result is: <span data-bind="text: result"></span>
+  <h3 class="displays">You chose: <p data-bind="text: weapon"></p></h3>
+  <h3 class="displays">Your opponent chose: <p data-bind="text: opponent"></p></h3>
+  <h3 class="displays"><p data-bind="text: result"></p></h3>
+
+  <button class="weapon-btns" data-bind="{ click: function() { $root.toggleTacticalMode(); };">Tactical Mode</button>
+
+  </center>
 
   <script src='/src/application.js'></script>
 </body>
+
 </html>

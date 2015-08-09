@@ -5,10 +5,13 @@
   <script src='/src/rps.js'></script>
 </head>
 <body>
+
   <p>Choose your weapon:</p>
-  <button data-bind="click: function() { $root.selectWeapon('Rock'); }">Rock</button>
-  <button data-bind="click: function() { $root.selectWeapon('Paper'); }">Paper</button>
-  <button data-bind="click: function() { $root.selectWeapon('Scissors'); }">Scissors</button>
+
+  <div id='buttons' data-bind="foreach: weaponButtons">
+    <button data-bind="click: function() { $root.selectWeapon($data); }, attr: { value='Hi';"><p data-bind="text: $data"></p></button>
+  </div>
+
   <p>My weapon is: <span data-bind="text: weapon"></span>
   <p>Opponents weapon is: <span data-bind="text: opponent"></span>
   <p>The result is: <span data-bind="text: result"></span>

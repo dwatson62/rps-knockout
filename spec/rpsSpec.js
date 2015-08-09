@@ -34,6 +34,20 @@ describe('Engine', function() {
       expect(game.result()).toEqual('Player Wins!');
     });
 
+    it('Spock beats Rock', function() {
+      game.userInput('Spock');
+      cpuChoice('Rock');
+      game.cpuInput();
+      expect(game.result()).toEqual('Player Wins!');
+    });
+
+    it('Lizard beats Paper', function() {
+      game.userInput('Lizard');
+      cpuChoice('Paper');
+      game.cpuInput();
+      expect(game.result()).toEqual('Player Wins!');
+    });
+
   });
 
   describe('Player loses', function() {

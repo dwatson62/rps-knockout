@@ -1,5 +1,6 @@
 function Game() {
-  this.gameRules = { 'Rock': 'Scissors', 'Scissors': 'Paper', 'Paper': 'Rock' };
+  this.gameRules = { 'Rock': ['Scissors', 'Lizard'], 'Scissors': ['Paper', 'Lizard'], 'Paper': ['Rock', 'Spock'], 'Lizard': ['Paper', 'Spock'], 'Spock': ['Scissors', 'Rock'] };
+  this.weapons = Object.keys(this.gameRules);
 }
 
 Game.prototype.userInput = function(weapon) {
@@ -8,23 +9,21 @@ Game.prototype.userInput = function(weapon) {
 };
 
 Game.prototype.generate = function() {
-  var x = Math.floor((Math.random() * 3) + 1);
+  var x = Math.floor((Math.random() * this.weapons.length));
   return x;
 };
 
 Game.prototype.cpuInput = function() {
   var x = this.generate();
-  if (x == 1) { this.cpuWeapon = 'Rock'; }
-  else if(x == 2) { this.cpuWeapon = 'Scissors'; }
-  else if(x == 3) { this.cpuWeapon = 'Paper'; }
+  this.cpuWeapon = this.weapons[x];
   return this.cpuWeapon;
-
 };
 
 Game.prototype.result = function() {
-  var userWeapon = this.userWeapon;
-  var cpuWeapon = this.cpuWeapon;
-  if (this.gameRules[userWeapon] === cpuWeapon) { return 'Player Wins!'; }
-  else if (userWeapon === cpuWeapon) { return 'Draw!'; }
-  else { return 'Computer Wins!'; }
+  if (this.userWeapon === this.cpuWeapon) { return 'Draw!'; }
+  var userWeapon = this.gameRules[this.userWeapon];
+  for (var i in userWeapon) {
+    if (userWeapon[i] === this.cpuWeapon) { return 'Player Wins!'; }
+  }
+    return 'Computer Wins!';
 };

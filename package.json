@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start spec/karma.conf.js",
+    "postinstall": "bower install",
+    "prestart": "npm install",
     "start": "node app.js"
   },
   "author": "",

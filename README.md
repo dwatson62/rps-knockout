@@ -14,3 +14,18 @@ Rock Paper Scissors Lizard Spock
 - Javascript
 - Knockout JS, Express, Node
 - Karma, Jasmine
+
+## Installation
+
+From the command line:
+
+- ``` git clone https://github.com/dwatson62/rps-knockout ```
+- ``` cd rps-knockout ```
+- ``` npm start ``` (this will download all npm and bower packages, and launch the server)
+- Visit [http://localhost:3000](http://localhost:3000)
+
+#### Tests
+
+For unit tests:
+
+- ``` npm test ```

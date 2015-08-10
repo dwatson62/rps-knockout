@@ -21,17 +21,16 @@ describe('Game Application', function() {
     expect(weapon).toBeDefined();
   });
 
-  it('can handle a result', function() {
-    // I would prefer to test that the player can win
-    // but I was unable to stub computer behaviour
-
+  xit('can handle a player victory', function() {
+    // I was unable to stub computer behaviour
     // I attempted a spy, but this did not work
+
     spyOn(testModel, 'opponent').and.returnValue('Paper');
 
     testModel.selectWeapon('Scissors');
     testModel.opponentSelect();
     var result = testModel.result();
-    expect(result).toBeDefined();
+    expect(result).toEqual('You Lose!');
   });
 
   xit('can handle a player defeat', function() {

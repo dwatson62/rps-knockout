@@ -1,8 +1,8 @@
 function Game() {
   this.gameRules = {
     'Rock': ['Scissors', 'Lizard'],
-    'Scissors': ['Paper', 'Lizard'],
     'Paper': ['Rock', 'Spock'],
+    'Scissors': ['Paper', 'Lizard'],
     'Lizard': ['Paper', 'Spock'],
     'Spock': ['Scissors', 'Rock']
   };

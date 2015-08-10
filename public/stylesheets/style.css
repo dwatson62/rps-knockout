@@ -3,19 +3,23 @@ header {
 }
 
 body {
-  background-image: url('http://khongthe.com/wallpapers/nature/the-lightning-238211.jpg');
+  background-image: url('/images/lightning.jpg');
 }
 
-.weapon-btns {
+.col-md-4 {
+  padding-top: 30px;
+}
+
+.other-btns {
+  padding-top: 30px;
+}
+
+.player-btns {
   height: 40px;
   text-align: center;
   font-size: 22px;
   color: #0099FF;
   background-color: black;
-}
-
-#tactical-btn {
-  height: 70px;
 }
 
 .displays {

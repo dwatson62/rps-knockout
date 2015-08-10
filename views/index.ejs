@@ -9,7 +9,7 @@
 <header>
   <center>
   <div data-bind="foreach: weaponButtons">
-      <button class="weapon-btns" data-bind="disable: $root.gameEnded, click: function() { $root.selectWeapon($data); };"><p data-bind="text: $data"></p></button>
+      <button class="player-btns" data-bind="disable: $root.gameEnded, click: function() { $root.selectWeapon($data); };"><p data-bind="text: $data"></p></button>
     </div>
   </center>
 </header>
@@ -20,19 +20,22 @@
 
   <div class="row">
     <div class="col-md-4">
+      <br><br><br><br>
       <h3 class="displays" id="player-score">Your Score
         <p data-bind="text: playerScore"/>
       </h3>
     </div>
     <div class="col-md-4">
-      <h3 class="displays">You chose: <p data-bind="text: weapon"></p></h3>
-      <h3 class="displays">The computer chose: <p data-bind="text: opponent"></p></h3>
+      <h3 class="displays">You chose<p data-bind="text: weapon"></p></h3>
+      <h3 class="displays">The computer chose<p data-bind="text: opponent"></p></h3>
       <h3 class="displays" id="result"><p data-bind="text: result"></p></h3>
-
-      <button id="tactical-btn" class="weapon-btns" data-bind="click: function() { $root.toggleTacticalMode(); };">Tactical Mode <p data-bind="text: tacticalMode"></p></button>
-      <button id="new-game-btn" class="weapon-btns" data-bind="click: function() { $root.newGame(); }">New Game</button>
+      <div class="other-btns">
+        <button id="tactical-btn" class="player-btns" data-bind="click: function() { $root.toggleTacticalMode(); };">Switch Tactical Mode <i data-bind="text: tacticalMode"></i></button>
+        <button id="new-game-btn" class="player-btns" data-bind="click: function() { $root.newGame(); }">New Game</button>
+      </div>
     </div>
     <div class="col-md-4">
+      <br><br><br><br>
       <h3 class="displays" id="cpu-score">Computer Score
         <p data-bind="text: cpuScore"/>
       </h3>

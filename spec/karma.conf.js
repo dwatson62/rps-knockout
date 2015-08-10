@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'bower_components/knockout/dist/knockout.js',
       'src/rps.js',
+      'src/application.js',
       'spec/*.js'
     ],
 
@@ -62,6 +63,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };

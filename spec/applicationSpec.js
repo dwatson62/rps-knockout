@@ -26,7 +26,7 @@ describe('Game Application', function() {
     // but I was unable to stub computer behaviour
 
     // I attempted a spy, but this did not work
-    spyOn(testModel, 'opponent').and.returnValue('Paper')
+    spyOn(testModel, 'opponent').and.returnValue('Paper');
 
     testModel.selectWeapon('Scissors');
     testModel.opponentSelect();
@@ -36,7 +36,7 @@ describe('Game Application', function() {
 
   xit('can handle a player defeat', function() {
     // Same as above, but for a player defeat
-    spyOn(testModel, 'opponent').and.returnValue('Paper')
+    spyOn(testModel, 'opponent').and.returnValue('Paper');
     testModel.selectWeapon('Rock');
     testModel.opponentSelect();
     var result = testModel.result();
@@ -48,7 +48,7 @@ describe('Game Application', function() {
     testModel.opponentSelect();
     testModel.result();
     testModel.newGame();
-    expect(testModel.playerScore()).toEqual('0/3')
+    expect(testModel.playerScore()).toEqual('0/3');
   });
 
   xit('when a player wins 3 times, the game ends', function() {

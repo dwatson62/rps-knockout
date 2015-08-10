@@ -63,7 +63,7 @@ Game.prototype.result = function() {
 };
 
 Game.prototype.checkFinalResult = function() {
-  var numberNeededToWin = Math.round(this.bestOfRounds / 2)
+  var numberNeededToWin = Math.round(this.bestOfRounds / 2);
   if (this.playerScore === numberNeededToWin) {
     return 'Player wins the match!';
   } else if (this.cpuScore === numberNeededToWin) {

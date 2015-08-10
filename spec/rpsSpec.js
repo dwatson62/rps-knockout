@@ -45,7 +45,7 @@ describe('Game', function() {
       game.userInput('Scissors');
       game.result();
       game.toggleTacticalMode();
-      game.userInput('Rock')
+      game.userInput('Rock');
       expect(game.cpuInput()).toEqual(game.winningMove);
     });
 
@@ -197,7 +197,7 @@ describe('Game', function() {
       for (x = 1; x <= numberNeededToWin; x ++) {
         game.result();
       }
-      expect(game.checkFinalResult()).toEqual('Player wins the match!')
+      expect(game.checkFinalResult()).toEqual('Player wins the match!');
     });
 
     it('player sees a defeat message if they lose', function() {
@@ -207,7 +207,7 @@ describe('Game', function() {
       for (x = 1; x <= numberNeededToWin; x ++) {
         game.result();
       }
-      expect(game.checkFinalResult()).toEqual('The computer wins the match!')
+      expect(game.checkFinalResult()).toEqual('The computer wins the match!');
     });
 
   });

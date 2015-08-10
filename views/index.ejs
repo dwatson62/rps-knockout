@@ -7,27 +7,42 @@
   <script src='/src/rps.js'></script>
 </head>
 <header>
-  <center><h1>Choose your weapon</h1></center>
+  <center>
+  <div data-bind="foreach: weaponButtons">
+      <button class="weapon-btns" data-bind="disable: $root.gameEnded, click: function() { $root.selectWeapon($data); };"><p data-bind="text: $data"></p></button>
+    </div>
+  </center>
 </header>
 
 <body>
 
   <center>
 
-  <br>
-  <div data-bind="foreach: weaponButtons">
-    <button class="weapon-btns" data-bind="{ click: function() { $root.selectWeapon($data); };"><p data-bind="text: $data"></p></button>
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="displays" id="player-score">Your Score
+        <p data-bind="text: playerScore"/>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      <h3 class="displays">You chose: <p data-bind="text: weapon"></p></h3>
+      <h3 class="displays">The computer chose: <p data-bind="text: opponent"></p></h3>
+      <h3 class="displays" id="result"><p data-bind="text: result"></p></h3>
+
+      <button id="tactical-btn" class="weapon-btns" data-bind="click: function() { $root.toggleTacticalMode(); };">Tactical Mode <p data-bind="text: tacticalMode"></p></button>
+      <button id="new-game-btn" class="weapon-btns" data-bind="click: function() { $root.newGame(); }">New Game</button>
+    </div>
+    <div class="col-md-4">
+      <h3 class="displays" id="cpu-score">Computer Score
+        <p data-bind="text: cpuScore"/>
+      </h3>
+    </div>
   </div>
-
-  <h3 class="displays">You chose: <p data-bind="text: weapon"></p></h3>
-  <h3 class="displays">Your opponent chose: <p data-bind="text: opponent"></p></h3>
-  <h3 class="displays"><p data-bind="text: result"></p></h3>
-
-  <button class="weapon-btns" data-bind="{ click: function() { $root.toggleTacticalMode(); };">Tactical Mode</button>
 
   </center>
 
   <script src='/src/application.js'></script>
+
 </body>
 
 </html>

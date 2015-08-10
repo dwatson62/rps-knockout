@@ -7,14 +7,33 @@ body {
 }
 
 .weapon-btns {
+  height: 40px;
   text-align: center;
   font-size: 22px;
   color: #0099FF;
   background-color: black;
 }
 
+#tactical-btn {
+  height: 70px;
+}
+
 .displays {
+  padding-top: 3px;
   background-color: #0099FF;
   width: 350px;
+  height: 65px;
   border: solid black;
+}
+
+#result {
+  padding-top: 13px;
+}
+
+#player-score {
+  width: 200px;
+}
+
+#cpu-score {
+  width: 200px;
 }

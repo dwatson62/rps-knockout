@@ -1,15 +1,19 @@
 function ViewModel() {
   var self = this;
+  var game = new Game();
+  var numberNeedToWin = '/' + Math.round(game.bestOfRounds / 2)
+
   self.weapon = ko.observable('');
   self.opponent = ko.observable('');
   self.result = ko.observable('');
-
-  var game = new Game();
-
+  self.tacticalMode = ko.observable('On');
+  self.playerScore = ko.observable(game.playerScore + numberNeedToWin);
+  self.cpuScore = ko.observable(game.cpuScore + numberNeedToWin);
+  self.gameEnded = ko.observable(false);
   self.weaponButtons = ko.observable(Object.keys(game.gameRules));
 
   self.toggleTacticalMode = function() {
-    game.toggleTacticalMode();
+    self.tacticalMode(game.toggleTacticalMode());
   };
 
   self.selectWeapon = function(input) {
@@ -27,6 +31,30 @@ function ViewModel() {
   self.seeResult = function() {
     var result = game.result();
     self.result(result);
+    self.updateScores();
+    self.checkFinalResult();
+  };
+
+  self.updateScores = function() {
+    self.playerScore(game.playerScore + numberNeedToWin);
+    self.cpuScore(game.cpuScore + numberNeedToWin);
+  };
+
+  self.checkFinalResult = function() {
+    var result = game.checkFinalResult()
+    if (result != null) {
+      self.result(result);
+      self.gameEnded(true);
+    }
+  };
+
+  self.newGame = function() {
+    game.newGame();
+    self.updateScores();
+    self.weapon('');
+    self.opponent('');
+    self.result('');
+    self.gameEnded(false);
   };
 }
 

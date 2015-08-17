@@ -51,7 +51,7 @@ function ViewModel() {
 
   self.checkFinalResult = function() {
     var result = game.checkFinalResult();
-    if (result !== null) {
+    if (result != null) {
       self.result(result);
       self.gameEnded(true);
     }
